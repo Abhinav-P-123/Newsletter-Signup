@@ -45,7 +45,18 @@ app.post("/", function (req, res) {
     }
   });
 
-  // request.write(jsonData);
+  https.get(urlGet, function (response) {
+    var responseData;
+    response.on("data", function (data) {
+      responseData += data;
+    });
+
+    response.on("end", function () {
+      console.log(JSON.parse(responseData));
+    });
+  });
+
+  request.write(jsonData);
   request.end();
 });
 
