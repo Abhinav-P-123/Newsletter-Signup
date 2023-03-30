@@ -11,7 +11,7 @@ app.listen(process.env.PORT || 2000, function () {
   console.log("Listening on port 2000");
 });
 app.get("/", function (req, res) {
-  res.send("Server is up and running");
+  res.sendFile(__dirname + "/signup.html");
 });
 app.post("/", function (req, res) {
   const firstName = req.body.FName;
