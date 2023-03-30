@@ -11,7 +11,7 @@ app.listen(process.env.PORT || 2000, function () {
   console.log("Listening on port 2000");
 });
 app.get("/", function (req, res) {
-  res.sendFile(__dirname + "/signup.html");
+  res.send("Server is up and running");
 });
 app.post("/", function (req, res) {
   const firstName = req.body.FName;
@@ -43,17 +43,6 @@ app.post("/", function (req, res) {
     } else {
       res.sendFile(__dirname + "/failure.html");
     }
-  });
-
-  https.get(urlGet, function (response) {
-    var responseData;
-    response.on("data", function (data) {
-      responseData += data;
-    });
-
-    response.on("end", function () {
-      console.log(JSON.parse(responseData));
-    });
   });
 
   request.write(jsonData);
