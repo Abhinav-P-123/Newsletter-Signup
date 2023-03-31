@@ -4,7 +4,8 @@ const https = require("https");
 const app = express();
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.listen(process.env.PORT || 2000, function () {
+const port = 2000;
+app.listen(process.env.PORT || port, function () {
   console.log("Listening on port 2000");
 });
 app.get("/", function (req, res) {
