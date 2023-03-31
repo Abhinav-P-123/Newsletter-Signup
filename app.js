@@ -18,7 +18,7 @@ app.post("/", function (req, res) {
   const lastName = req.body.LName;
   const email = req.body.email;
   const url = "https://us13.api.mailchimp.com/3.0/lists/b4946f8808";
-
+  res.send(firstName);
   var data = {
     members: [
       {
@@ -36,14 +36,6 @@ app.post("/", function (req, res) {
     method: "POST",
     auth: "abhi:56920d3e220a65763432afa2eeb1f69b-us13",
   };
-
-  const request = https.request(url, options, function (response) {
-    if (response.statusCode === 200) {
-      res.sendFile(__dirname + "/success.html");
-    } else if (response.statusCode != 200) {
-      res.sendFile(__dirname + "/failure.html");
-    }
-  });
 
   request.write(jsonData);
   request.end();
