@@ -1,25 +1,19 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const https = require("https");
-const app = express();
-
+const express = require("express"),
+  bodyParser = require("body-parser"),
+  https = require("https"),
+  app = express();
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
-
-const port = 2000;
-
-app.listen(process.env.PORT || port, function () {
-  console.log("Listening on port 2000");
-});
+app.listen(process.env.PORT || 2000, () =>
+  console.log("Listening on port 2000")
+);
 app.get("/", function (req, res) {
   res.sendFile(__dirname + "/signup.html");
 });
 app.post("/", function (req, res) {
-  const firstName = req.body.FName;
-  const lastName = req.body.LName;
-  const email = req.body.email;
-  const url = "https://us13.api.mailchimp.com/3.0/lists/b4946f8808";
-
+  const firstName = req.body.FName,
+    lastName = req.body.LName,
+    email = req.body.email;
   var data = {
     members: [
       {
@@ -37,7 +31,6 @@ app.post("/", function (req, res) {
     method: "POST",
     auth: "abhi:56920d3e220a65763432afa2eeb1f69b-us13",
   };
-
   const request = https.request(url, options, function (response) {
     if (response.statusCode === 200) {
       res.sendFile(__dirname + "/success.html");
@@ -45,11 +38,9 @@ app.post("/", function (req, res) {
       res.sendFile(__dirname + "/failure.html");
     }
   });
-
   request.write(jsonData);
   request.end();
 });
-
 app.post("/failure", function (req, res) {
   res.redirect("/");
 });
