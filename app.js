@@ -32,7 +32,7 @@ app.post("/", function (req, res) {
     auth: "abhi:bee786fe78dc3074dc0b37b46c86d563-us13",
   };
   const request = https.request(url, options, function (response) {
-    if (response.statusCode === 200) {
+    if (response.statusCode == 200) {
       res.sendFile(__dirname + "/success.html");
     } else if (response.statusCode != 200) {
       res.sendFile(__dirname + "/failure.html");
