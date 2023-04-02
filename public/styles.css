@@ -74,7 +74,7 @@ input:valid ~ span {
 input:focus {
   transition: 200ms;
   outline: none;
-  padding-bottom: 12px;
+  padding-bottom: 14px;
   padding-top: 2.2em;
 }
 
