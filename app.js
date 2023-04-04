@@ -4,7 +4,8 @@ const express = require("express"),
   app = express();
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.listen(process.env.PORT || 2000, () => {});
+const port = 2000;
+app.listen(process.env.PORT || port, () => {});
 app.get("/", function (req, res) {
   res.sendFile(__dirname + "/signup.html");
 });
