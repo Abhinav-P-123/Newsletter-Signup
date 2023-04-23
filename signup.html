@@ -2,33 +2,35 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Signup</title>
-    <link rel="stylesheet" href="/styles.css" />
-    <link rel="shortcut icon" href="\icons8-login-color-32.png" />
+    <!-- displays site properly based on user's device -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Intro component with sign up form</title>
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <img
-      src="https://logindesigns.com/front/Login%20logo/logo-color.png"
-      alt=""
-    />
     <form action="/" method="post">
+      <h1 class="singup-heading">Signup</h1>
       <div class="input-container">
         <input type="text" name="FName" id="FName" required />
-        <span class="input-label">First Name</span>
+        <label class="input-label">First Name</label>
       </div>
       <div class="input-container">
         <input type="text" name="LName" id="LName" required />
-        <span class="input-label">Last Name</span>
+        <label class="input-label">Last Name</label>
       </div>
       <div class="input-container">
         <input type="email" name="email" id="email" required />
-        <span class="input-label">Email</span>
+        <label class="input-label">Email</label>
       </div>
 
       <button type="submit">Sign Up</button>
     </form>
-    <script></script>
   </body>
 </html>
