@@ -6,7 +6,6 @@ var mongoose = require("mongoose"),
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 const port = 2000;
-<<<<<<< HEAD
 app.listen(process.env.PORT || port, () => { });
 require("dotenv").config()
 app.get("/", function (req, res) {
